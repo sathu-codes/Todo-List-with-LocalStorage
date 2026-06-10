@@ -17,20 +17,20 @@ const load_more = document.getElementById("Load-more");
 const task_competed = document.getElementById("task-completed");
 const task_pending = document.getElementById("task-pending");
 const total_task = document.getElementById("total-task");
-const user_name = document.getElementById("user-name");
-const user_display_name = document.getElementById("user-display-name");
-const avator_login = document.getElementById("avatar-login");
-const avator_selection = document.getElementById("avator-selection");
-const Login = document.getElementById("login");
-const back = document.getElementById("back");
+const next_page = document.getElementById("next-page");
 
 
 
-function assign_username(){
-    user_display_name.value  = user_name.value;
 
-    next.addEventListener("click",()=>{
-        console.log(user_display_name.value);
-    });
-    
+//main page
+
+function main_page(){
+    name.textContent = localStorage.getItem("user_name");
+    avator.classList = `w-[100px] h-[100px] rounded-[50px] border-2 border-green-400 `;
+    avator.src = localStorage.getItem("avator"); 
+
+    avator.src = localStorage.getItem("avator");
+
 }
+
+main_page();
