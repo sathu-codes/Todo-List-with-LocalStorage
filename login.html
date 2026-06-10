@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="flex items-center justify-center  min-h-screen bg-[url('/back-ground/632219.jpg')]">
+    <div class="flex flex-col w-[600px] h-auto bg-black/50 rounded-[20px]">
+
+        <div class="flex flex-col justify-start my-10 mx-4 gap-4">
+ 
+            <div class="relative">
+                <div class="flex items-center absolute justify-center w-[120px] h-[120px]  left-1/2 -translate-x-1/2 -top-[110px]">
+                    <img src="/icons/avatar.png" class="w-[120px] h-[120px] rounded-[60px] border-4 border-white" id="avatar-login">
+                </div>
+            </div>
+
+            <!--login page-->
+
+            <div class="flex flex-col justify-center items-center gap-5 mt-8">
+                <p class="font-['roboto'] text-[white] text-4xl">Login</p>
+                <input type="text" class="h-[40px] font-['roboto'] w-[300px] text-[18px] placeholder:text-center  focus:ring-2 text-center outline-none rounded-[20px]" placeholder="Enter Your Name" id="user-name">
+                <button class="flex justify-center items-center font-['arial'] text-xl font-bold h-[40px] w-[120px] bg-white rounded-[25px]" id="next" >
+                    Next
+                </button>
+            </div>
+
+            <!--AVATOR SELECTION PAGE-->
+
+            <div  class="flex flex-col hidden" >
+                <div class="flex flex-col  gap-5 mt-8">
+                    <div class="flex justify-center items-center">
+                        <p class=" font-['roboto'] text-[white] text-4xl font-bold">Hello , <span id="user-display-name"  class="text-[yellow] font-bold">js-update</span> </p>
+                    </div>
+                    <div class="grid grid-cols-[1fr_1fr_1fr_1fr]  grid-rows-[1fr_1fr_1fr_1fr] gap-3 ">
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="grid grid-cols-[1fr_1fr] w-full" id="avator-selection">
+                        <div class="flex justify-start">
+                            <button class="flex items-center justify-center w-auto h-auto bg-[#b4b4dd] font-['roboto'] text-white text-[25px] p-2 m-3 rounded-md" id="back">Back</button>
+                        </div>
+                        <div class="flex justify-end">
+                            <button class="flex items-center justify-center w-auto h-auto bg-[#000086] font-['roboto'] text-white text-[25px] px-4  m-3  rounded-md" id="login">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

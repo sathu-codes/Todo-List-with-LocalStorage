@@ -13,14 +13,18 @@
 
 
 </head>
-    <body class="flex flex-col min-h-screen">
+    <body class="flex flex-col min-h-screen ">
         <main>
             <div class="flex flex-col w-full h-auto">
 
                 <div class="sticky top-0 z-50 bg-white grid gap-6 pl-12 pr-8 grid-cols-[auto_6fr_auto] w-full h-auto items-center shadow-lg">
                     <div class="justify-self-center flex text-[45px] items-center  justify-center w-[90px] h-[90px] font-['poppins'] font-bold rounded-[45px] bg-red-500  text-[#000000]">Y</div>
                     <div class="flex font-['Island_Moments'] justify-start items-center text-[80px]">Yista Labs</div>
-                    <div></div>
+                    <div>
+                        <div class="flex justify-end ">
+                            <img src="icons/github.png" class="w-[90px] h-[90px]" id="avator"> 
+                        </div>
+                    </div>
                 </div>
 
                 <div class="flex justify-center items-center h-auto w-full ">
@@ -37,7 +41,7 @@
                                     <div class="flex flex-col bg-white mt-5 mb-5"> 
                                         <div class="flex justify-center items-center font-['Roboto'] text-[20px] font-bold text-[#63605F] mb-5" id="month">April</div>
                                         <div class="flex w-full h-auto items-center justify-center">
-                                            <div class="grid grid-cols-[repeat(7,1fr)] grid-rows-[repeat(6,1fr)] border-black">
+                                            <div class="grid grid-cols-[repeat(7,1fr)] grid-rows-[repeat(6,1fr)] border-black" id="calender">
                                         <!----  <div class="border border-gray-300 p-2 text-center">Sat</div>
                                                 <div class="border border-gray-300 p-2 text-center">Mon</div>
                                                 <div class="border border-gray-300 p-2 text-center">Tue</div>
@@ -105,10 +109,10 @@
                                 <div>
                                     <div class="grid grid-cols-[2fr_5fr_1fr] gap-10">
                                         <div>
-                                            <input type="text" class="h-[40px] w-full bg-[#DBE2EF] outline-none p-0 text-[18px]" id="task-maker">
+                                            <input type="text" class=" h-[40px] w-full placeholder:text-center bg-[#DBE2EF] outline-none pl-3 text-[15px]  font-['roboto'] " placeholder="Type Title Of Task" id="task-name">
                                    </div>
                                         <div>
-                                            <input type="text" class="h-[40px] w-full bg-[#DBE2EF] outline-none text-[18px]" id="task-maker">
+                                            <input type="text" class="h-[40px] w-full bg-[#DBE2EF] outline-none text-[15px] font-['roboto'] placeholder:indent-10 pl-3 " placeholder="Detail of your task" id="task-details">
                                         </div>
                                         <div class="flex justify-self-end w-full">
                                             <button class="w-full h-full" id="submit">
@@ -119,70 +123,75 @@
                                         </div>
                                     </div>
 
-                                    <!--catogory selecting ocntainer-->
-                                    <div class="flex relative justify-end" id="catogory-selector">
+                                    <!--catogory selecting container-->
+                                    <div class="flex relative justify-end" >
                                         <div class="flex flex-col absolute bg-black/50 rounded-md mt-5 w-auto h-auto">
-                                            <div class="grid grid-cols-3 gap-5 grid-rows-3 w-[420px] h-[420px]">
+                                            <div class="grid grid-cols-3 gap-5 grid-rows-3 w-[420px] h-[420px]" id="catogory-selector">
                                             <!---   <div class="flex flex-col w-full h-[150px] gap-10 pl-4 pt-4">
                                                     <img src="" class="w-[100px] h-[100px]">
                                                     <p class="w-[200px] h-[50px]"></p>
                                                 </div> -->
                                             </div>
-                                            <div class="flex flex-col"></div>
+                                            <div class="flex flex-col" id="dificulty-selector"></div>
                                             <div class="grid grid-cols-[1fr_1fr] w-auto h-auto" >
                                                 <div class="flex justify-start">
-                                                    <button class="flex items-center justify-center w-auto h-auto bg-[#b4b4dd] font-['roboto'] text-white text-[25px] p-2 m-3 rounded-md">preview</button>
+                                                    <button class="flex items-center justify-center w-auto h-auto bg-[#b4b4dd] font-['roboto'] text-white text-[25px] p-2 m-3 rounded-md" id="preview">preview</button>
                                                 </div>
                                                 <div class="flex justify-end">
-                                                    <button class="flex items-center justify-center w-auto h-auto bg-[#000086] font-['roboto'] text-white text-[25px] px-4 pt-0 m-3  rounded-md">next</button>
+                                                    <button class="flex items-center justify-center w-auto h-auto bg-[#000086] font-['roboto'] text-white text-[25px] px-4 pt-0 m-3  rounded-md" id="next">next</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="grid gap-5 grid-cols-[auto_auto_5fr] items-center mt-10">
+                                    <div class="grid gap-5 grid-cols-[auto_5fr] items-center mt-10">
                                         
                                         <div class="flex w-auto h-[30px] overflow-hidden  items-center rounded-md">
-                                            <button id="catagory-filter" class="flex items-center  h-[30px] justify-center  bg-[#F0D1A8] flex-row gap-[3px] px-1"> 
-                                                <p>By category</p>
-                                                <img src="icons/sort.png" class="w-[20px] h-[20px]">
+                                            <button id="catagory-filter"  class="flex items-center gap-2  h-[30px] justify-center  bg-[#F0D1A8] flex-row px-3"> 
+                                                <p>Filter</p>
+                                                <img src="icons/filter.png" class="w-[20px] h-[20px]">
                                             </button>
                                         </div>
 
-                                        <div class="flex w-auto h-[30px]  items-center overflow-hidden rounded-md">
-                                            <button id="catagory-filter" class="flex items-center  h-[30px] justify-center  bg-[#F0D1A8] flex-row gap-[3px] px-1"> 
-                                                <p>By priority</p>
-                                                <img src="icons/sort.png" class="w-[20px] h-[20px]">
-                                            </button>
-                                        </div>
-
-                                        
                                         <div class="flex flex-row w-[200px] justify-self-end overflow-hidden rounded-md  gap-2 border-[#F0D1A8] border-2 bg-white"> 
-                                            <input class="w-[150px] h-[30px] outline-none ">
-                                            <img src="icons/search.png" class=" bg-white w-[30px] h-[30px]">
+                                            <input class="w-[150px] h-[30px] text-[16px] outline-none placeholder:text-center font-['roboto'] pl-2" placeholder="Search by name" id="task-search">
+                                            <img src="icons/search.png" class=" bg-white w-[30px] h-[30px] pl-2 ">
+                                        </div>
+                                    </div>
+
+                                    <!--filter and history-->
+                                    <div class="flex relative flex-col">
+                                        <div class="flex absolute gap-5 justify-start flex-col w-[300px] h-[400px] bg-black/50 rounded-md hidden">
+                                            <div class="flex flex-col">
+                                                <div class="flex  justify-center" id="filter-options">
+                                                    <p class="font-['roboto'] text-[20px]">Select dificulty</p>
+                                                </div>
+                                            </div>
+                                            <div class="inline-block px-2 py-2">
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div id="tasks">
                                     </div>
 
-                                    <div class="flex justify-center"><p class="font-[inter] text-2xl pt-2 pb-2 pl-5 pr-5 border-solid border-2 rounded border-[#F2B258]" id="load-more-button" >Load more</p></div>
+                                    <div class="flex justify-center"><p class="font-[inter] text-2xl pt-2 pb-2 pl-5 pr-5 border-solid border-2 rounded border-[#F2B258]" id="load-more" >Load more</p></div>
                                 </div>
                             </div>
                         </div>
                         <div class="grid grid-cols-[1fr_1fr_4.4fr] gap-10">
-                            <div class="flex flex-col w-auto h-auto bg-[#F0D1A8] mt-5 mb-5 pt-5 pb-5 pl-5 pr-5 rounded-[20px] items-center " id="task-competed">
+                            <div class="flex flex-col w-auto h-auto bg-[#F0D1A8] mt-5 mb-5 pt-5 pb-5 pl-5 pr-5 rounded-[20px] items-center " >
                                 <div class="font-['roboto'] font-bold text-center text-[20px]">
                                     COMPLETED <br> TASK
                                 </div>
-                                <div class="text-center font-['roboto'] font-bold text-[20px]" >1</div>
+                                <div class="text-center font-['roboto'] font-bold text-[20px]" id="task-completed">1</div>
                             </div>
 
-                            <div class="flex flex-col w-auto h-auto bg-[#C4A49F] mt-5 mb-5 pt-5 pb-5 pl-5 pr-5 rounded-[20px] items-center" id="task-pending">
+                            <div class="flex flex-col w-auto h-auto bg-[#C4A49F] mt-5 mb-5 pt-5 pb-5 pl-5 pr-5 rounded-[20px] items-center">
                                 <div class="font-['roboto'] font-bold text-center text-[20px]">
                                     PENDING<br>TASK
                                 </div>
-                                <div class="text-center font-['roboto'] font-bold text-[20px]" >1</div>
+                                <div class="text-center font-['roboto'] font-bold text-[20px]"  id="task-pending">1</div>
                             </div>
                             <div class="grid grid-cols-[1fr_1fr] bg-white grid-rows-[1fr_1fr] shadow-lg pl-5 pr-5 pb-5 bt-5 mt-5 mb-5 rounded-lg">
                                 <div class="flex justify-start">
@@ -193,7 +202,7 @@
                                     <p class="flex justify-center items-center font-[inter] text-xl">Active Users</p>
                                 </div>
                                 <div class="flex justify-start">
-                                    <p class="flex justify-center items-center text-5xl font-bold" id="total task">1500</p>
+                                    <p class="flex justify-center items-center text-5xl font-bold" id="total-task">1500</p>
                                 </div>
                                 <div></div>
                             </div>
