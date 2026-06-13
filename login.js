@@ -33,6 +33,7 @@ function assign_username(){
         avatar_img.src = `/avtor/avator${i}.png`;
         avatar_img.classList = `w-[100px] h-[100px] rounded-[50px]`
         avator_selection.append(avatar_img);
+        
         avatar_img.addEventListener("click",()=>{
             avator_login.src = `/avtor/avator${i}.png`;
             localStorage.setItem("avator",avator_login.src);
