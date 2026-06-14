@@ -38,8 +38,12 @@
                                 <div class="flex flex-col">
                                     <div class="flex justify-start font-['Island_Moments'] text-5xl text-[#F87777]" id="Day">Js-update</div>
                                     <div class="flex font-['Roboto'] text-[35px] justify-start" id="date">16, October 2026</div>
-                                    <div class="flex flex-col bg-white mt-5 mb-5"> 
-                                        <div class="flex justify-center items-center font-['Roboto'] text-[20px] font-bold text-[#63605F] mb-5" id="month">April</div>
+                                    <div class="flex flex-col bg-white mt-5 mb-5 rounded-md"> 
+                                        <div class="grid grid-cols-3">
+                                            <div class="items-center justify-end flex "><img src="icons/arrow2.png" class="w-[20px]" id="month-shift-1"></div>
+                                            <div><p class="font-['Roboto'] text-[20px] text-center font-bold text-[#63605F] mb-3 mt-3" id="month"></p></div>
+                                            <div class="items-center justify-start flex "><img src="icons/arrow1.png" class="w-[20px]" id="month-shift-2"></div>
+                                        </div>
                                         <div class="flex w-full h-auto items-center justify-center">
                                             <div class="grid grid-cols-[repeat(7,1fr)] grid-rows-[repeat(6,1fr)] border-black" id="calender">
                                         <!----  <div class="border border-gray-300 p-2 text-center">Sat</div>
@@ -124,8 +128,8 @@
                                     </div>
 
                                     <!--catogory selecting container-->
-                                    <div class="flex relative justify-end" >
-                                        <div class="flex flex-col absolute bg-black/50 rounded-md mt-5 w-auto h-auto">
+                                    <div class="flex relative justify-end">
+                                        <div class="flex flex-col absolute bg-black/50 rounded-md mt-5 w-auto h-auto hidden">
                                             <div class="grid grid-cols-3 gap-5 grid-rows-3 w-[420px] h-[420px]" id="catogory-selector">
                                             <!---   <div class="flex flex-col w-full h-[150px] gap-10 pl-4 pt-4">
                                                     <img src="" class="w-[100px] h-[100px]">
@@ -159,7 +163,7 @@
                                         </div>
                                     </div>
 
-                                    <!--filter and history-->
+                                    <!--filter-->
                                     <div class="flex relative flex-col">
                                         <div class="flex absolute gap-5 justify-start flex-col w-[300px] h-[400px] bg-black/50 rounded-md hidden">
                                             <div class="flex flex-col">
