@@ -1,6 +1,7 @@
 const avator = document.getElementById("avator");
 const name = document.getElementById("name");
 const day = document.getElementById("Day");
+const tasks = document.getElementById("tasks");
 const date = document.getElementById("date");
 const month = document.getElementById("month");
 const calender = document.getElementById("calender");
@@ -149,5 +150,105 @@ function calander_section(){
     calander_build();
 }
 
+//task container  
+
+function task_holder(user_input){
+
+    //task create
+    function container_create(){
+        const task_container = document.createElement("div");
+        task_container.classList = `grid grid-cols-[auto_40px] w-full h-[140px] bg-[#F0D1A8] rounded-[10px] px-6 py-1 my-4`;
+        tasks.append(task_container);
+        return task_container;
+    }
+
+    function sub_container(container){
+        const data_container_1 = document.createElement("div"); 
+        const data_container_2 = document.createElement("div");
+        
+        data_container_1.classList = `flex flex-col`;
+        data_container_2.classList = `flex flex-col items-center gap-3 py-2`;
+
+        container.append(data_container_1);
+        container.append(data_container_2);
+
+        return [data_container_1,data_container_2];
+    }
+
+    function data(container_1,container_2){
+        const data_1 = document.createElement("p");
+        const data_2 = document.createElement("p");
+        const data_3 = document.createElement("p");
+        const date_container = document.createElement("div");
+
+        const simbol_1 = document.createElement("img");
+        const simbol_2 = document.createElement("img");
+        const simbol_3 = document.createElement("img");
+
+        simbol_1.src = `/icons/edit.png`;
+        simbol_2.src = `/icons/check-mark.png`;
+        simbol_3.src = `/icons/trash.png`;
+        
+        simbol_1.className = "icons";
+        simbol_2.className = "icons";
+        simbol_3.className = "icons";
+
+        date_container.classList = `flex flex-row w-full items-center flex-center h-full mt-4`;
+
+        data_1.classList = `text-2xl font-['arial'] text-[#3A3A36] font-bold`;
+        data_1.textContent = user_input[0];
+
+        data_2.textContent =  user_input[1];
+        data_2.classList = `text-md font-['arial'] text-[#5C5C57] mt-1`;
+
+        container_1.append(data_1);
+        container_1.append(data_2);
+        container_1.append(data_3);
+        container_1.append(date_container);
+        
+        container_2.append(simbol_1);
+        container_2.append(simbol_2);
+        container_2.append(simbol_3);
+
+
+        
+        return date_container;
+    }
+
+    function date_adding(container_3){
+        const text_1 = document.createElement("p");
+        const text_2 = document.createElement("p");
+
+        text_1.textContent = "Starting Time";
+        text_2.textContent = "sathu";
+
+        text_1.classList = `text-left w-full font-['arial'] text-xl font-bold`;
+        text_2.classList = `text-center w-full font-['arial'] text-xl font-bold`;
+
+        container_3.append(text_1);
+        container_3.append(text_2)
+    }
+
+    const chain_1 = container_create();
+    const chain_2 = sub_container(chain_1);
+    const date_time = data(chain_2[0],chain_2[1]);
+    date_adding(date_time);
+
+}
+
+function task_creator(){
+    let task_information = [];
+
+    
+    submit.addEventListener("click",()=>{
+        task_information.push(task_name.value);
+        task_information.push(task_detail.value);
+
+        task_holder(task_information);
+        //console.log(task_information);
+    })
+}
+
 main_page();
 calander_section();
+task_creator();
