@@ -203,9 +203,9 @@ function task_holder(user_input){
         const simbol_2 = document.createElement("img");
         const simbol_3 = document.createElement("img");
 
-        simbol_2.src = `/icons/check-mark.png`;
-        simbol_1.src = `/icons/edit.png`;
-        simbol_3.src = `/icons/trash.png`;
+        simbol_2.src = `icons/check-mark.png`;
+        simbol_1.src = `icons/edit.png`;
+        simbol_3.src = `icons/trash.png`;
         
         simbol_1.className = "icons";
         simbol_2.className = "icons";
