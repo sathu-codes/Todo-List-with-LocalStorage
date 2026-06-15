@@ -30,12 +30,12 @@ function assign_username(){
 
     for(let i=1 ; i<=8 ; i++){
         const avatar_img = document.createElement("img");
-        avatar_img.src = `/avtor/avator${i}.png`;
+        avatar_img.src = `avtor/avator${i}.png`;
         avatar_img.classList = `w-[100px] h-[100px] rounded-[50px]`
         avator_selection.append(avatar_img);
         
         avatar_img.addEventListener("click",()=>{
-            avator_login.src = `/avtor/avator${i}.png`;
+            avator_login.src = `avtor/avator${i}.png`;
             localStorage.setItem("avator",avator_login.src);
         });
 

@@ -23,8 +23,9 @@ const next_page = document.getElementById("next-page");
 const month_shift_1 = document.getElementById("month-shift-1");
 const month_shift_2 = document.getElementById("month-shift-2");
 
+//global variables
 
-
+let mode = null;
 
 //main page
 
@@ -32,9 +33,26 @@ function main_page(){
     name.textContent = localStorage.getItem("user_name");
     avator.classList = `w-[100px] h-[100px] rounded-[50px] border-2 border-green-400 `;
     avator.src = localStorage.getItem("avator"); 
-
     avator.src = localStorage.getItem("avator");
 
+    const i = localStorage.getItem("i");
+    try {
+        for(let a=1 ; a<i ;a++){
+            const previous_task=JSON.parse(localStorage.getItem(`task_count${a}`));
+            console.log(previous_task);
+            task_holder(previous_task);
+        }
+    }
+    catch{
+        console.log("no previous task");
+    }
+    
+    task_pending.textContent = Number(localStorage.getItem("task_pending"));
+    /*let task_pending_status = 0;
+    let task_competed_status = 0;
+
+    localStorage.setItem("task_pending",task_pending_status);
+    localStorage.setItem("task_completed",task_competed_status);*/
 }
 
 function calander_section(){
@@ -185,8 +203,8 @@ function task_holder(user_input){
         const simbol_2 = document.createElement("img");
         const simbol_3 = document.createElement("img");
 
-        simbol_1.src = `/icons/edit.png`;
         simbol_2.src = `/icons/check-mark.png`;
+        simbol_1.src = `/icons/edit.png`;
         simbol_3.src = `/icons/trash.png`;
         
         simbol_1.className = "icons";
@@ -196,18 +214,45 @@ function task_holder(user_input){
         date_container.classList = `flex flex-row w-full items-center flex-center h-full mt-4`;
 
         data_1.classList = `text-2xl font-['arial'] text-[#3A3A36] font-bold`;
-        data_1.textContent = user_input[0];
+        data_1.textContent = user_input.name;
 
-        data_2.textContent =  user_input[1];
+        data_2.textContent =  user_input.details;
         data_2.classList = `text-md font-['arial'] text-[#5C5C57] mt-1`;
+
+        simbol_1.addEventListener("click",()=>{
+            mode = user_input.value;
+            task_name.placeholder = "Enter The New Task Name";
+            task_detail.placeholder="Upadate Your Task Details";
+
+            task_name.value = user_input.name;
+            task_detail.value = user_input.details;
+        })
+
+        simbol_2.addEventListener("click",()=>{
+            user_input.completed = true;
+            const upadated_user_input_2 = JSON.stringify(user_input);
+            localStorage.setItem(`task_count${user_input.value}`,upadated_user_input_2);
+
+            let task_completed_status = Number(localStorage.getItem("task_completed"));
+            let task_pending_status = Number(localStorage.getItem("task_pending"));
+
+            task_completed_status = Number(localStorage.getItem("task_completed"))+1;
+            task_pending_status = Number(localStorage.getItem("task_pending"))-1;
+
+            localStorage.setItem("task_pending",task_pending_status);
+            localStorage.setItem("task_completed",task_completed_status);
+
+            task_pending.textContent = task_pending_status;
+            task_competed.textContent = task_completed_status;
+        })
 
         container_1.append(data_1);
         container_1.append(data_2);
         container_1.append(data_3);
         container_1.append(date_container);
         
-        container_2.append(simbol_1);
         container_2.append(simbol_2);
+        container_2.append(simbol_1);
         container_2.append(simbol_3);
 
 
@@ -220,7 +265,7 @@ function task_holder(user_input){
         const text_2 = document.createElement("p");
 
         text_1.textContent = "Starting Time";
-        text_2.textContent = "sathu";
+        text_2.textContent = user_input.time;
 
         text_1.classList = `text-left w-full font-['arial'] text-xl font-bold`;
         text_2.classList = `text-center w-full font-['arial'] text-xl font-bold`;
@@ -237,16 +282,56 @@ function task_holder(user_input){
 }
 
 function task_creator(){
-    let task_information = [];
 
-    
     submit.addEventListener("click",()=>{
-        task_information.push(task_name.value);
-        task_information.push(task_detail.value);
+        if(mode!==null){
+            
+            const time = new Date().toLocaleTimeString()
+            const task_information = {
+                value : mode,
+                task_ID : `task_ID${mode}`,
+                name : task_name.value,
+                details : task_detail.value,
+                time : time,
+                completed : false
+            };
 
-        task_holder(task_information);
-        //console.log(task_information);
+            const upadated_user_input = JSON.stringify(task_information);
+
+            localStorage.setItem(`task_count${mode}`,upadated_user_input);
+            alert('Task updated!');
+            location.reload();
+        }
+        else{
+            let i = localStorage.getItem("i");
+
+            i = i ? parseInt(i) : 1;
+
+            const time = new Date().toLocaleTimeString()
+            const task_information = {
+                value : i,
+                task_ID : `task_ID${i}`,
+                name : task_name.value,
+                details : task_detail.value,
+                time : time,
+                completed : false
+            };
+            const str_convert = JSON.stringify(task_information);
+            localStorage.setItem(`task_count${i}`, str_convert );
+            localStorage.setItem("i",i+1);
+            let task_pending_status = Number(localStorage.getItem("task_pending"));
+
+            
+            task_pending_status = Number(localStorage.getItem("task_pending"))+1;
+
+            localStorage.setItem("task_pending",task_pending_status);
+
+            task_pending.textContent = task_pending_status;
+
+            task_holder(task_information);
+        }
     })
+
 }
 
 main_page();
